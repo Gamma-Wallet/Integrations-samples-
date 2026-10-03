@@ -1,0 +1,5 @@
+bin/
+obj/
+qr-*.png
+node_modules/
+*.class

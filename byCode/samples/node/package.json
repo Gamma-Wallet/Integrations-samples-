@@ -1,0 +1,9 @@
+{
+  "name": "gamma-integration-sample",
+  "version": "1.0.0",
+  "description": "Gamma Integration API sample for Node.js. No dependencies.",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "scripts": { "me": "node example.mjs me" }
+}

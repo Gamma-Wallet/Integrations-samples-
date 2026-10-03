@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <!-- Lets the sample build on a newer SDK too, without the .NET 8 runtime installed. -->
+    <RollForward>Major</RollForward>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>gamma-sample</AssemblyName>
+    <RootNamespace>GammaIntegration</RootNamespace>
+  </PropertyGroup>
+
+</Project>
