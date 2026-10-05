@@ -4,8 +4,9 @@ Connect your shop, booking system or point of sale to [Gamma Wallet](https://www
 
 | Folder | For |
 |---|---|
+| [WooCommerce-Plugin](https://github.com/Gamma-Wallet/WooCommerce-Plugin) (separate repository) | Shop owners with a WooCommerce shop: the ready-made plugin and a step-by-step guide, no coding needed |
 | [byCode](byCode) | Developers who write the connection themselves: documentation, workflow diagrams and samples in C#, PHP, Node.js and Java |
 
-Ready-made connections for shop platforms will be added here, one folder each.
+Each shop platform has a repository of its own.
 
-Start with [byCode/README.md](byCode/README.md).
+Have a WooCommerce shop? Start with the [WooCommerce-Plugin guide](https://github.com/Gamma-Wallet/WooCommerce-Plugin#readme). Writing your own connection? Start with [byCode/README.md](byCode/README.md).
