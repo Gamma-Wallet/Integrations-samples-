@@ -110,8 +110,17 @@ final class GammaClient
             CURLOPT_CONNECTTIMEOUT => 10,
         ];
         if ($body !== null) {
-            // Amounts go as JSON numbers; JSON_PRESERVE_ZERO_FRACTION keeps 20.0 as 20.0.
-            $options[CURLOPT_POSTFIELDS] = json_encode($body, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION);
+            // Amounts go as JSON numbers; JSON_PRESERVE_ZERO_FRACTION keeps 20.0 as 20.0. With
+            // serialize_precision = 17, which many servers still set, PHP would write 0.8 as
+            // 0.80000000000000004 and Gamma would sign a total the customer's app does not match,
+            // so the shortest exact form is forced while encoding.
+            $precision = ini_get('serialize_precision');
+            ini_set('serialize_precision', '-1');
+            try {
+                $options[CURLOPT_POSTFIELDS] = json_encode($body, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION);
+            } finally {
+                ini_set('serialize_precision', $precision);
+            }
             $headers[] = 'Content-Type: application/json';
         }
         $options[CURLOPT_HTTPHEADER] = $headers;
